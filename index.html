@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Repaka SaiKrishna, Computer Science Engineering student and aspiring software engineer.">
+  <title>Repaka SaiKrishna | Future Builder</title>
+  <style>
+    :root {
+      --bg: #07111f; --panel: #0e1c30; --panel2: #11243b;
+      --text: #f3f7ff; --muted: #b1c0d6; --blue: #39c5ff;
+      --purple: #9a85ff; --line: rgba(151,190,235,.19);
+      --shadow: 0 18px 50px rgba(0,0,0,.22);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { background: radial-gradient(circle at 82% 10%, #102b51 0, transparent 27%), var(--bg); color: var(--text); font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(1120px, 91%); margin: auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(7,17,31,.91); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { font-weight: 850; font-size: 1.15rem; line-height: 1.15; letter-spacing: -.4px; }
+    .brand span { color: var(--blue); }
+    .brand small { display: block; color: var(--muted); font-size: .76rem; font-weight: 500; letter-spacing: 1.2px; margin-top: 5px; }
+    .navlinks { list-style: none; display: flex; flex-wrap: wrap; gap: 19px; align-items: center; }
+    .navlinks a { color: var(--muted); font-size: .88rem; transition: color .2s; }
+    .navlinks a:hover { color: var(--blue); }
+    .menu { display: none; border: 1px solid var(--line); color: var(--text); background: var(--panel); border-radius: 10px; padding: 8px 12px; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 18px; border: 1px solid var(--blue); border-radius: 11px; background: linear-gradient(110deg, #178fe8, #2fc8f8); color: #04111e; font-weight: 800; box-shadow: 0 8px 28px rgba(39,177,245,.16); transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(39,177,245,.24); }
+    .btn.secondary { background: transparent; color: var(--blue); box-shadow: none; }
+    .hero { min-height: 620px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 48px; align-items: center; padding-top: 66px; padding-bottom: 70px; }
+    .eyebrow { display: inline-flex; border: 1px solid rgba(57,197,255,.45); color: var(--blue); border-radius: 999px; padding: 5px 13px; font-size: .86rem; margin-bottom: 20px; background: rgba(57,197,255,.06); }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1.08; letter-spacing: -2.5px; margin-bottom: 17px; }
+    .gradient { background: linear-gradient(95deg, #39c5ff, #a99aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .role { font-size: clamp(1.05rem, 2.2vw, 1.42rem); color: #d3e2fa; margin-bottom: 18px; }
+    .hero p, .muted { color: var(--muted); }
+    .hero p { max-width: 650px; font-size: 1.03rem; margin-bottom: 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .visual { position: relative; min-height: 330px; display: grid; place-items: center; }
+    .orbit { width: min(330px, 75vw); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(57,197,255,.5); background: radial-gradient(circle at 35% 30%, rgba(57,197,255,.23), rgba(91,65,204,.16) 48%, transparent 70%); box-shadow: 0 0 70px rgba(28,147,238,.13), inset 0 0 45px rgba(57,197,255,.07); display: grid; place-items: center; position: relative; }
+    .orbit:before, .orbit:after { content: ""; position: absolute; border: 1px solid rgba(154,133,255,.45); border-radius: 50%; inset: 18px; transform: rotate(-25deg) scaleX(1.2); }
+    .orbit:after { inset: 42px; transform: rotate(38deg) scaleX(1.25); border-color: rgba(57,197,255,.38); }
+    .monogram { position: relative; z-index: 1; width: 155px; height: 155px; display: grid; place-items: center; border-radius: 34px; transform: rotate(-7deg); background: linear-gradient(145deg, #148fe8, #7b61d9); box-shadow: 0 18px 60px rgba(26,129,232,.28); font-size: 2.7rem; font-weight: 900; letter-spacing: -3px; }
+    .float-tag { position: absolute; z-index: 2; padding: 9px 13px; border: 1px solid var(--line); border-radius: 12px; background: rgba(14,28,48,.94); color: #dceaff; font-size: .83rem; box-shadow: var(--shadow); }
+    .tag-one { top: 26px; right: -2px; } .tag-two { bottom: 34px; left: 0; } .tag-three { bottom: 4px; right: 16px; }
+    section { padding: 76px 0; }
+    .section-head { margin-bottom: 30px; }
+    .kicker { color: var(--blue); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: .75rem; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.2; letter-spacing: -.8px; margin: 7px 0 12px; }
+    .section-head p { color: var(--muted); max-width: 720px; }
+    .panel { background: linear-gradient(145deg, rgba(17,36,59,.94), rgba(10,25,43,.95)); border: 1px solid var(--line); border-radius: 18px; padding: 25px; box-shadow: var(--shadow); }
+    .about-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; }
+    .about-copy { color: var(--muted); }
+    .facts { display: grid; gap: 13px; }
+    .fact { padding: 14px; border-radius: 12px; background: rgba(255,255,255,.025); border: 1px solid var(--line); }
+    .fact strong { display: block; color: var(--blue); font-size: .82rem; margin-bottom: 2px; }
+    .fact span { color: var(--text); font-size: .95rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px; }
+    .card { background: linear-gradient(150deg, var(--panel2), var(--panel)); border: 1px solid var(--line); border-radius: 16px; padding: 22px; transition: transform .2s, border-color .2s; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(57,197,255,.5); }
+    .icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 13px; color: var(--blue); background: rgba(57,197,255,.1); border: 1px solid rgba(57,197,255,.22); font-size: 1.2rem; margin-bottom: 15px; }
+    h3 { font-size: 1.12rem; margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .93rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .chip { border: 1px solid rgba(57,197,255,.2); color: #bfeeff; background: rgba(57,197,255,.07); padding: 5px 9px; border-radius: 7px; font-size: .77rem; }
+    .project { display: flex; flex-direction: column; }
+    .project .chips { margin-bottom: 18px; }
+    .project-note { color: var(--muted); font-size: .82rem; margin-top: auto; padding-top: 10px; }
+    .edu { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+    .cgpa { border: 1px solid rgba(57,197,255,.35); background: rgba(57,197,255,.08); color: var(--blue); padding: 12px 17px; border-radius: 13px; font-weight: 850; white-space: nowrap; }
+    .list { padding-left: 19px; color: var(--muted); }
+    .list li { padding: 4px 0; }
+    .cert-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 15px; }
+    .cert { display: flex; align-items: flex-start; gap: 14px; }
+    .cert .icon { flex-shrink: 0; margin-bottom: 0; }
+    .cert p { color: var(--muted); font-size: .9rem; }
+    .contact-box { text-align: center; padding: 42px 25px; background: radial-gradient(circle at 50% 0, rgba(57,197,255,.13), transparent 60%), var(--panel); }
+    .contact-box p { max-width: 640px; margin: 0 auto 22px; color: var(--muted); }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .contact-links a { color: var(--blue); border: 1px solid var(--line); padding: 8px 12px; border-radius: 9px; font-size: .9rem; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 900px) { .navlinks { gap: 11px; } .navlinks a { font-size: .8rem; } .hero { gap: 20px; } .grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 720px) {
+      .menu { display: block; }
+      nav { flex-wrap: wrap; padding: 13px 0; }
+      .navlinks { display: none; flex-direction: column; align-items: flex-start; width: 100%; padding: 8px 0 14px; }
+      .navlinks.open { display: flex; }
+      .navlinks a { font-size: .95rem; }
+      .hero { grid-template-columns: 1fr; padding-top: 55px; min-height: auto; }
+      .visual { min-height: 290px; }
+      .orbit { width: 260px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .edu { grid-template-columns: 1fr; }
+      .cgpa { justify-self: start; }
+      section { padding: 58px 0; }
+      h1 { letter-spacing: -1.6px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#home">REPAKA <span>SAIKRISHNA</span><small>FUTURE BUILDER</small></a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="navlinks">☰ Menu</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#home">Home</a></li><li><a href="#about">About</a></li>
+      <li><a href="#interests">Interests</a></li><li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li>
+      <li><a href="#certificates">Certificates</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero" id="home">
+    <div>
+      <span class="eyebrow">Computer Science Engineering · B.Tech 3rd Year</span>
+      <h1>Hi, I'm <span class="gradient">Repaka SaiKrishna</span></h1>
+      <div class="role">Aspiring Software Engineer <span class="gradient">|</span> Problem Solver <span class="gradient">|</span> Future Builder</div>
+      <p>I’m a Computer Science Engineering student and aspiring Software Engineer. I’m passionate about programming, problem-solving, and building innovative real-world applications. I enjoy learning new technologies and turning ideas into practical solutions.</p>
+      <div class="actions">
+        <a class="btn" href="#projects">⌕ &nbsp; View My Projects</a>
+        <a class="btn secondary" href="resume.pdf" download>↓ &nbsp; Download Resume</a>
+      </div>
+    </div>
+    <div class="visual" aria-label="Decorative initials graphic">
+      <div class="orbit"><div class="monogram">RSK</div></div>
+      <div class="float-tag tag-one">✦ Future Builder</div>
+      <div class="float-tag tag-two">⌘ Software Development</div>
+      <div class="float-tag tag-three">AI · Web · Innovation</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">Get to know me</span><h2>About <span class="gradient">Me</span></h2><p>A little about my background and what I’m working toward.</p></div>
+      <div class="about-grid">
+        <div class="panel about-copy">
+          I am a Computer Science Engineering student with a strong interest in software development and emerging technologies. I have a foundation in programming, web development, databases, and problem-solving. I have worked on academic and real-world-oriented projects, including an Energy Consumption Optimization and Loss Prediction System. I am continuously improving my technical skills through projects, certifications, and hands-on learning.
+        </div>
+        <div class="panel facts">
+          <div class="fact"><strong>DEGREE</strong><span>B.Tech, Computer Science Engineering</span></div>
+          <div class="fact"><strong>COLLEGE</strong><span>Lendi Institute of Engineering and Technology</span></div>
+          <div class="fact"><strong>CURRENT YEAR</strong><span>3rd Year</span></div>
+          <div class="fact"><strong>CGPA</strong><span>8.7 / 10</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">What motivates me</span><h2>Areas of <span class="gradient">Interest</span></h2><p>Topics I enjoy exploring and developing my skills in.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">&lt;/&gt;</div><h3>Software Development & Programming</h3><p>Writing clear code and learning how to build useful software.</p></article>
+        <article class="card"><div class="icon">✧</div><h3>Artificial Intelligence & Machine Learning</h3><p>Exploring data-driven methods and intelligent applications.</p></article>
+        <article class="card"><div class="icon">▣</div><h3>Web Development</h3><p>Building responsive, accessible, user-friendly web experiences.</p></article>
+        <article class="card"><div class="icon">◇</div><h3>Innovation & Problem Solving</h3><p>Breaking down challenges and turning ideas into solutions.</p></article>
+        <article class="card"><div class="icon">⌁</div><h3>Emerging Technologies</h3><p>Keeping curious about new tools, technologies, and approaches.</p></article>
+        <article class="card"><div class="icon">↗</div><h3>Real-World Projects</h3><p>Learning by building practical projects and experimenting.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">My toolkit</span><h2>Technical <span class="gradient">Skills</span></h2><p>Technologies and core concepts I have studied or worked with.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">⌘</div><h3>Programming Languages</h3><div class="chips"><span class="chip">C</span><span class="chip">Java</span><span class="chip">Python</span></div></article>
+        <article class="card"><div class="icon">▤</div><h3>Web Technologies</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div></article>
+        <article class="card"><div class="icon">▦</div><h3>Databases</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">SQL</span></div></article>
+        <article class="card"><div class="icon">◈</div><h3>Core Concepts</h3><div class="chips"><span class="chip">Data Structures</span><span class="chip">OOP</span><span class="chip">DBMS</span><span class="chip">Operating Systems</span><span class="chip">Computer Networks</span></div></article>
+        <article class="card"><div class="icon">⚙</div><h3>Tools & Technologies</h3><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span></div></article>
+        <article class="card"><div class="icon">✦</div><h3>Areas of Focus</h3><div class="chips"><span class="chip">Software Development</span><span class="chip">Machine Learning</span><span class="chip">AI</span><span class="chip">Web Development</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">Selected work</span><h2>Featured <span class="gradient">Projects</span></h2><p>Academic projects focused on applying software and technology to practical needs.</p></div>
+      <div class="grid">
+        <article class="card project">
+          <div class="icon">⚡</div><h3>Energy Consumption Optimization and Loss Prediction System for Smart Households</h3>
+          <p>A machine-learning-oriented system designed to analyze household energy consumption, predict potential power losses, and help identify opportunities to improve energy efficiency. The project can include data preprocessing, visualizations, predictive analysis, and consumption reports.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">SQL</span></div>
+          <p class="project-note">Project summary based on the supplied resume and project description.</p>
+        </article>
+        <article class="card project">
+          <div class="icon">✚</div><h3>Patient Case-Taking Software</h3>
+          <p>A software concept for recording and organizing patient case details in a structured digital format. It is intended to make patient information easier to enter, review, and manage. Update this summary to match the exact features implemented in your project.</p>
+          <div class="chips"><span class="chip">Software Development</span><span class="chip">Data Management</span><span class="chip">User Interface</span></div>
+          <p class="project-note">Add your actual technology stack, screenshots, and repository link when available.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">Academic journey</span><h2>My <span class="gradient">Education</span></h2></div>
+      <article class="panel edu">
+        <div><h3>Bachelor of Technology — Computer Science Engineering</h3><p class="muted">Lendi Institute of Engineering and Technology</p><p class="muted">2024–2028 · Currently in 3rd Year</p></div>
+        <div class="cgpa">CGPA: 8.7 / 10</div>
+      </article>
+      <article class="panel edu" style="margin-top:15px">
+        <div><h3>Intermediate (Classes 11 & 12)</h3><p class="muted">Sri Viswa Junior College · 2022–2024</p></div>
+        <div class="cgpa">92%</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="certificates">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">Learning & development</span><h2>Certificates & <span class="gradient">Courses</span></h2><p>Certificates and courses you shared. Add verification links if available.</p></div>
+      <div class="cert-grid">
+        <article class="panel cert"><div class="icon">✓</div><div><h3>EduSkills</h3><p>Certificate / program details can be added here.</p></div></article>
+        <article class="panel cert"><div class="icon">文</div><div><h3>Cambridge Upskill — English Course</h3><p>English language learning course.</p></div></article>
+        <article class="panel cert"><div class="icon">◎</div><div><h3>NPTEL — Internet of Things</h3><p>Course certificate.</p></div></article>
+        <article class="panel cert"><div class="icon">▥</div><div><h3>NPTEL — Data Analytics with Python</h3><p>Course certificate.</p></div></article>
+        <article class="panel cert"><div class="icon">⌘</div><div><h3>CCC Platform — Problem Solving</h3><p>Problem-solving course or certificate.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume">
+    <div class="wrap">
+      <div class="panel contact-box">
+        <span class="kicker">Career profile</span><h2>My <span class="gradient">Resume</span></h2>
+        <p>Download my resume to explore my education, skills, and project experience in a concise format.</p>
+        <a class="btn" href="resume.pdf" download="Repaka_SaiKrishna_Resume.pdf">↓ &nbsp; Download My Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="panel contact-box">
+        <span class="kicker">Get in touch</span><h2>Let's <span class="gradient">Connect</span></h2>
+        <p>I’m interested in software development, practical projects, and opportunities to learn and grow. Feel free to contact me professionally.</p>
+        <a class="btn" href="mailto:repakasairam9@gmail.com">✉ &nbsp; repakasairam9@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/repaka-sai-krishna-2734aa354/" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub — add your profile ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-inner"><span>© <span id="year"></span> Repaka SaiKrishna · Future Builder</span><span>Designed with HTML, CSS & JavaScript</span></div></footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const menu = document.getElementById("menu");
+  const links = document.getElementById("navlinks");
+  menu.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
+  });
+  links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    links.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  }));
+</script>
+</body>
+</html>
